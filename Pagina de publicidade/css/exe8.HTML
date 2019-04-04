@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Qual a sua idade?
+        <input type="number" id="idade"> <br>
+        Quantos filhos você tem?
+        <input type="number" id="filhos"> <br>
+
+        <button type="button" onclick="analisar()">Analisar vida</button>
+
+
+    </form>
+    <div id="div_analise"></div>
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var frase;
+
+        if(idade.value > 18 && filhos.value > 3){
+            frase = 'Não tem Tv nem internet em casa?';
+        }else if(idade.value > 18 && filhos.value < 3 ){
+            frase = 'Parabéns pelos filhos!';
+        }else if(idade.value > 18){
+            frase = 'Você é maior de idade';
+        }else if(idade.value < 18 && filhos.value >= 1){
+            frase = 'Nossa, começou cedo heim : O';
+        }else if(idade.value < 14 ){
+            frase = 'Você é praticamente uma criança';
+        }else{
+            frase = 'Você é menor de idade';
+        }
+        div_analise.innerHTML = frase;
+    }
+
+
+
+
+
+</script>
