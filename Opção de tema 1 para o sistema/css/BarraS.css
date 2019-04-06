@@ -44,9 +44,9 @@ nav h1{
     display: block;
     position: absolute;
     top: 0;
-    right: -65px;
+    right: -92px;
     height: 60px;
-    width: 65px;
+    width: 92px;
     line-height: 60px;
     font-size: 0.8em;
     font-weight: 300px;
@@ -77,6 +77,7 @@ nav li{
     line-height: 60px;
     background-color: #353441;
     transition: all 0.5s ease-in;
+    cursor: pointer;
 }
 
 nav li:nth-of-type(n){
@@ -145,7 +146,7 @@ main section{
     right: 0;
     margin: auto;
     padding: 1em 4em;
-    max-width: 680px;
+    max-width: 890px;
     overflow: auto;
     background-color: rgba(255,255,255,.5);
 }
