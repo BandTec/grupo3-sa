@@ -101,4 +101,32 @@ main{
     background-image: url();
     transform-origin: 0% 50%;
     background: cover;
+
+}
+
+main:after{
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to right, trasparent, rgba(33,33,45,.5));
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 150ms ease-out, visbility 0s 150ms;
+     
+}
+
+main.menu-active{
+    border-radius: 0.001px;
+    transform: translateX(16em) rotateY(15deg);
+}
+
+main.menu-active:after{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 150ms ease-out, visibility 0s;
 }
