@@ -17,10 +17,11 @@ nav {
 }
 
 nav.green{
-    background: rgb(0, 197, 131);
+    background: rgba(255, 255, 255, 0.966);
     height: 100px;
     padding: 10px;
     opacity: .6;
+    z-index: 4;
 }
 
 nav .Logo{
@@ -28,8 +29,10 @@ nav .Logo{
 }
 
 nav .Logo img{
-    height: 80px;
-    transition: .5s;    
+    height: 68px;
+    transition: .5s;
+    width: 300px; 
+    opacity: 1.2;   
 }
 
 nav ul {
