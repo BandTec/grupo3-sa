@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin - Hcode Treinamentos</title>
+  <title>NexusTech</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
@@ -12,7 +12,16 @@
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
   <meta name="author" content="Hcode.com.br" />
-  <meta name="theme-color" content="#3c8dbc">
+  <meta name="theme-color" content="#ADD8E6">
+  <style>
+  .welcome{
+    color: forestgreen;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 150px;
+    font-family: Gill Sans MT;
+  }
+  </style>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -24,9 +33,9 @@
       <!-- Logo -->
       <a href="index.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini">HCODE</span>
+        <span class="logo-mini">NexusTech</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">HCODE</span>
+        <span class="logo-lg">NexusTech</span>
       </a>
 
       <!-- Header Navbar -->
@@ -45,7 +54,7 @@
                 <!-- The user image in the navbar-->
                 <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                <span class="hidden-xs">Fulano Junior</span>
+                <span class="hidden-xs">Gabbys Stefanólas</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
@@ -53,7 +62,7 @@
                   <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                   <p>
-                    Fulano Junior
+                    Gabbys Stefanólas
                     <small>fulano@hcode.com.br</small>
                   </p>
                 </li>
@@ -84,7 +93,7 @@
             <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
-            <p>Fulano Junior</p>
+            <p>Gabbys Stefanólas</p>
             <!-- Status -->
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
@@ -101,33 +110,29 @@
             </a>
           </li>
           <li>
-            <a href="menus.html">
-              <i class="fa fa-cutlery"></i>
-              <span>Menu</span>
+              <a href="Monitoramento.html">
+                <i class="fa fa-circle"></i>
+                <span>Monitoramento</span>
+              </a>
+            </li>
+            <li>
+          <li>
+              <a href="historico.html">
+                  <i class="fa fa-circle"></i>
+                  <span>Historico</span>
+                </a>
+              </li>
+              <li>
+            <li>
+            <a href="sensores.html">
+              <i class="fa fa-circle"></i>
+              <span>Sensores</span>
             </a>
           </li>
           <li>
-            <a href="reservations.html">
-              <i class="fa fa-calendar-check-o"></i>
-              <span>Reservas</span>
-            </a>
-          </li>
-          <li>
-            <a href="contacts.html">
-              <i class="fa fa-comments"></i>
-              <span>Contatos</span>
-            </a>
-          </li>
-          <li>
-            <a href="users.html">
-              <i class="fa fa-users"></i>
-              <span>Usuários</span>
-            </a>
-          </li>
-          <li>
-            <a href="emails.html">
-              <i class="fa fa-envelope"></i>
-              <span>E-mails</span>
+            <a href="alertas.html">
+              <i class="fa fa-circle"></i>
+              <span>Alertas</span>
             </a>
           </li>
         </ul>
@@ -152,87 +157,14 @@
       <!-- Main content -->
       <section class="content container-fluid">
 
-        <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box" onclick="window.location.href = '/reservations'" style="cursor:pointer">
-              <span class="info-box-icon bg-aqua">
-                <i class="ion ion-ios-calendar"></i>
-              </span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Reservas</span>
-                <span class="info-box-number">90</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box" onclick="window.location.href = '/contacts'" style="cursor:pointer">
-              <span class="info-box-icon bg-red">
-                <i class="ion ion-ios-chatboxes"></i>
-              </span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Contatos</span>
-                <span class="info-box-number">41</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix visible-sm-block"></div>
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box" onclick="window.location.href = '/menu'" style="cursor:pointer">
-              <span class="info-box-icon bg-green">
-                <i class="fa fa-cutlery"></i>
-              </span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Menu</span>
-                <span class="info-box-number">3</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box" onclick="window.location.href = '/users'" style="cursor:pointer">
-              <span class="info-box-icon bg-yellow">
-                <i class="ion ion-ios-people-outline"></i>
-              </span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Usuários</span>
-                <span class="info-box-number">2</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-        </div>
+       <div class=welcome>Bem-Vindo</div>
 
       </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <!-- To the right -->
-      <div class="pull-right hidden-xs">
-        <a target="_blank" href="https://www.hcode.com.br">Hcode</a>
-      </div>
-      <!-- Default to the left -->
-      Projeto desenvolvido no curso online de JavaScript da Hcode Treinamentos.
-    </footer>
+    
 
   </div>
 
