@@ -47,7 +47,7 @@ body {
 }
 
 a {
-  color: #FBB448;
+  color: rgb(49, 37, 224);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 ::selection {
   color: #fff;
-  background: #FBB448;
+  background: rgb(0, 0, 0);
 }
 
 .gtco-container {
@@ -300,7 +300,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-bottom: 30px;
 }
 #gtco-header .form-wrap {
-  border-top: 10px solid #FBB448;
+  border-top: 10px solid rgb(2, 27, 63);
   position: relative;
   width: 100%;
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
@@ -598,7 +598,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  color: #FBB448;
+  color: rgba(41, 76, 233, 0.829);
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -664,7 +664,7 @@ form label {
 }
 
 .primary-color {
-  color: #FBB448 !important;
+  color: rgb(13, 66, 240) !important;
 }
 
 #gtco-header .display-tc,
@@ -790,7 +790,7 @@ form label {
 }
 
 #gtco-features {
-  background: #FBB448;
+  background: rgb(59, 59, 59);
 }
 #gtco-features .gtco-heading h2 {
   color: #fff;
@@ -805,7 +805,7 @@ form label {
   width: 90px;
   height: 90px;
   border: 1px solid rgba(255, 255, 255, 0.8);
-  background: #FBB448;
+  background: rgb(0, 0, 0);
 }
 #gtco-features .feature-center .icon i {
   color: #fff;
@@ -971,7 +971,7 @@ form label {
 #gtco-subscribe .btn {
   height: 46px;
   border: none !important;
-  background: #FBB448;
+  background: rgb(0, 0, 0);
   color: #fff;
   font-size: 16px;
   text-transform: uppercase;
@@ -1342,17 +1342,17 @@ form label {
 }
 
 .btn-primary {
-  background: #FBB448;
+  background: rgb(21, 40, 209);
   color: #fff;
-  border: 2px solid #FBB448 !important;
+  border: 2px solid rgb(17, 0, 110) !important;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: #fcbe61 !important;
-  border-color: #fcbe61 !important;
+  background: #032cb4 !important;
+  border-color: #00115f !important;
 }
 .btn-primary.btn-outline {
   background: transparent;
-  color: #FBB448;
+  color: rgb(0, 0, 0);
   border: 2px solid #FBB448;
 }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
