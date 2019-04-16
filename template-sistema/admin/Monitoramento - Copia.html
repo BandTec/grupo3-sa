@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NexusTech</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+    <meta name="author" content="Hcode.com.br" />
+    <meta name="theme-color" content="#ADD8E6">
+       <!-- http://doc.jsfiddle.net/use/hacks.html#css-panel-hack -->
+       <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+    .chart {
+   
+      min-width: 320px;
+      max-width: 1000px;
+      height: 220px;
+      margin: 0 auto;
+      }
+  </style>
+ 
+  
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini">NexusTech</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">NexusTech</span>
+      </a>
+
+      <!-- Header Navbar -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- User Account Menu -->
+            <li class="dropdown user user-menu">
+              <!-- Menu Toggle Button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs">Gabbys Stefanólas</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                  <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+
+                  <p>
+                    Gabbys Stefanólas
+                    <small>fulano@hcode.com.br</small>
+                  </p>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="#" class="btn btn-default btn-flat">Sair</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>Gabbys Stefanólas</p>
+            <!-- Status -->
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">MENU</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li>
+            <a href="index.html">
+              <i class="fa fa-home"></i>
+              <span>Tela Inicial</span>
+            </a>
+          </li>
+          <li class="active">
+                <a href="Monitoramento.html">
+                  <i class="fa fa-circle"></i>
+                  <span>Monitoramento</span>
+                </a>
+              </li>
+              <li>
+            <li>
+          <li>
+        <a href="historico.html">
+                <i class="fa fa-circle"></i>
+                    <span>Historico</span>
+                      </a>
+                    </li>
+                    <li>
+                  <li>
+            <a href="sensores.html">
+              <i class="fa fa-circle"></i>
+              <span>Sensores</span>
+            </a>
+          </li>
+          <li>
+            <a href="alertas.html">
+              <i class="fa fa-circle"></i>
+              <span>Alertas</span>
+            </a>
+          </li>
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Monitoramento
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      
+      <div id="container"></div>
+
+
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    
+
+
+
+     <!-- jQuery 3 -->
+
+     <script src="https://code.highcharts.com/highcharts.js"></script>
+     <script src="https://code.highcharts.com/modules/data.js"></script>
+      <script>
+        /*
+The purpose of this demo is to demonstrate how multiple charts on the same page
+can be linked through DOM and Highcharts events and API methods. It takes a
+standard Highcharts config with a small variation for each data set, and a
+mouse/touch event handler to bind the charts together.
+*/
+
+
+/**
+ * In order to synchronize tooltips and crosshairs, override the
+ * built-in events with handlers defined on the parent element.
+ */
+['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
+    document.getElementById('container').addEventListener(
+        eventType,
+        function (e) {
+            var chart,
+                point,
+                i,
+                event;
+
+            for (i = 0; i < Highcharts.charts.length; i = i + 1) {
+                chart = Highcharts.charts[i];
+                // Find coordinates within the chart
+                event = chart.pointer.normalize(e);
+                // Get the hovered point
+                point = chart.series[0].searchPoint(event, true);
+
+                if (point) {
+                    point.highlight(e);
+                }
+            }
+        }
+    );
+});
+
+/**
+ * Override the reset function, we don't need to hide the tooltips and
+ * crosshairs.
+ */
+Highcharts.Pointer.prototype.reset = function () {
+    return undefined;
+};
+
+/**
+ * Highlight a point by showing tooltip, setting hover state and draw crosshair
+ */
+Highcharts.Point.prototype.highlight = function (event) {
+    event = this.series.chart.pointer.normalize(event);
+    this.onMouseOver(); // Show the hover marker
+    this.series.chart.tooltip.refresh(this); // Show the tooltip
+    this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
+};
+
+/**
+ * Synchronize zooming through the setExtremes event handler.
+ */
+function syncExtremes(e) {
+    var thisChart = this.chart;
+
+    if (e.trigger !== 'syncExtremes') { // Prevent feedback loop
+        Highcharts.each(Highcharts.charts, function (chart) {
+            if (chart !== thisChart) {
+                if (chart.xAxis[0].setExtremes) { // It is null while updating
+                    chart.xAxis[0].setExtremes(
+                        e.min,
+                        e.max,
+                        undefined,
+                        false,
+                        { trigger: 'syncExtremes' }
+                    );
+                }
+            }
+        });
+    }
+}
+
+// Get the data. The contents of the data file can be viewed at
+Highcharts.ajax({
+    url: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/activity.json',
+    dataType: 'text',
+    success: function (activity) {
+      var array =[{datasets: [{name: "Sped", data: Array(500), unit: "km/h", type: "line", valueDecimals: 1},
+                  {name: "Elevation", data: Array(500), unit: "m", type: "area", valueDecimals: 0},
+                  {name: "Heart rate", data: Array(500), unit: "bpm", type: "area", valueDecimals: 0}]}] 
+       
+        
+
+        activity = JSON.parse(activity);
+
+        
+ 
+        activity.datasets[0].name = 'teste'
+
+        console.log(activity)
+
+        activity.datasets.forEach(function (dataset, i) {
+
+            // Add X values
+            dataset.data = Highcharts.map(dataset.data, function (val, j) {
+                return [activity.xData[j], val];
+            });
+
+            var chartDiv = document.createElement('div');
+            chartDiv.className = 'chart';
+            document.getElementById('container').appendChild(chartDiv);
+
+            Highcharts.chart(chartDiv, {
+                chart: {
+                    marginLeft: 40, // Keep all charts left aligned
+                    spacingTop: 20,
+                    spacingBottom: 20
+                },
+                title: {
+                    text: dataset.name,
+                    align: 'left',
+                    margin: 0,
+                    x: 30
+                },
+                credits: {
+                    enabled: false
+                },
+                legend: {
+                    enabled: false
+                },
+                xAxis: {
+                    crosshair: true,
+                    events: {
+                        setExtremes: syncExtremes
+                    },
+                    labels: {
+                        format: '{value} km'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    }
+                },
+                tooltip: {
+                    positioner: function () {
+                        return {
+                            // right aligned
+                            x: this.chart.chartWidth - this.label.width,
+                            y: 10 // align to title
+                        };
+                    },
+                    borderWidth: 0,
+                    backgroundColor: 'none',
+                    pointFormat: '{point.y}',
+                    headerFormat: '',
+                    shadow: false,
+                    style: {
+                        fontSize: '18px'
+                    },
+                    valueDecimals: dataset.valueDecimals
+                },
+                series: [{
+                  
+                    data: dataset.data,
+                    name: dataset.name,
+                    type: dataset.type,
+                    color: Highcharts.getOptions().colors[i],
+                    fillOpacity: 0.3,
+                    tooltip: {
+                        valueSuffix: ' ' + dataset.unit
+                    }
+                }]
+            });
+        });
+    }
+});
+
+      </script>
+     
+     
+     
+
+
+
+  
+</html>

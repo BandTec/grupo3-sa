@@ -145,54 +145,58 @@
       </section>
 
       <!-- Main content -->
-      <section class="content container-fluid">
+      <div>
+        teste
+      </div>
+      <div id="container" style="min-width: 310px;max-width: 1100px; height: 300px; margin: 0 auto"></div>
 
-            <canvas id="temp"></canvas>
-            <canvas id="umid"></canvas>
 
-      </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
     
 
-  </div>
+
 
      <!-- jQuery 3 -->
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- PACE -->
-  <script src="bower_components/PACE/pace.min.js"></script>
-  <!-- SlimScroll -->
-  <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-  <!-- FastClick -->
-  <script src="bower_components/fastclick/lib/fastclick.js"></script>
-  <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
-  <!-- page script -->
-  <script type="text/javascript">
-    // To make Pace works on Ajax calls
-    $(document).ajaxStart(function () {
-      Pace.restart()
-    })
-    $('.ajax').click(function () {
-      $.ajax({
-        url: '#', success: function (result) {
-          $('.ajax-content').html('<hr>Ajax Request Completed !')
-        }
-      })
-    })
-  </script>
 
-    
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-<script src="configs/grafico.js"></script>
-<script src="configs/socket.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script>Highcharts.chart('container', {
+      chart: {
+          type: 'line'
+      },
+      title: {
+          text: 'Geladeira piso superior'
+      },
+      subtitle: {
+          text: ''
+      },
+      xAxis: {
+          categories: ['23:00', '23:05', '23:10', '23:15', '23:20', '23:25', '23:30', '23:35', '23:40', '23:45', '23:50', '23:55']
+      },
+      yAxis: {
+          title: {
+              text: 'Temperature (°C)'
+          }
+      },
+      plotOptions: {
+          line: {
+              dataLabels: {
+                  enabled: true
+              },
+              enableMouseTracking: false
+          }
+      },
+      series: [{
+          name: '',
+          data: [22.0, 20.9, 21.5, 22.5, 23.4, 24.5, 23.2, 22.5, 21.3, 22.3, 21.9, 22.6]
+      }]
+  });</script>
 
+
+
+  
 </html>
