@@ -15,6 +15,32 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/index', function(req, res, next) {
+
+  res.render('index',{title : 'oiiii'});
+
+  
+
+});
+
+router.get('/sobrenos', function(req, res, next) {
+
+  res.render('sobrenos',{title : 'oiiii'});
+
+  
+
+});
+
+router.get('/suporte', function(req, res, next) {
+
+  res.render('suporte',{title : 'oiiii'});
+
+  
+
+});
+
+
+
 router.post('/',function(req,res){
 
   controladora.cadastrar(req,res);
