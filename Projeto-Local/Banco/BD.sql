@@ -1,5 +1,5 @@
-create database Nexus_Tec;
-use Nexus_Tec;
+create database Nexus_Tech;
+use Nexus_Tech;
 
 create table Usuario (
   CPF int primary key,	
@@ -25,19 +25,27 @@ create table Usuario (
 
  create table Local1 (
   idLocal int primary key auto_increment,
-  Nome_M varchar (40)
+  Sensor varchar (40)
+  );
+
+  select * from Local1;
+
+   create table Medicamentos (
+  idMedicamentos int primary key auto_increment,
+  Nome varchar (40),
+  Quantidade int
   );
   
- insert into Sensor values
-  (null,'insulinas'),
-  (null,'Xalacon '),
-  (null,'Solução Oftálmica'),
-  (null,'Xalatan Solução Oftálmica'),
-  (null,'Foraseq'),
-  (null,'Arulatan Solução Oftálmica'),
-  (null,'Miacalcic Spray nasal');
+ insert into Medicamentos values
+  (null,'insulinas'200),
+  (null,'Xalacon '120),
+  (null,'Solução Oftálmica'150),
+  (null,'Xalatan Solução Oftálmica'100),
+  (null,'Foraseq'125),
+  (null,'Arulatan Solução Oftálmica'190),
+  (null,'Miacalcic Spray nasal'112);
 
-  select * from Sensor;
+  select * from Medicamentos;
   
 
  create table Historico (
@@ -49,7 +57,7 @@ create table Usuario (
   Minima_u float,
   Media_u float,
   Data date,
-  Tempo_Alerta varchar (40)
+  Tempo_alerta varchar (40)
   );
 
  insert into Historico values
@@ -59,23 +67,6 @@ create table Usuario (
   (null,8, 2, 2.8, 70, 40, 40.70,'2019-03-31', '23:59');
  
  select * from Historico;     
-
-CREATE TABLE Medicamentos (
-Nome varchar(40),
-idMedicamentos int PRIMARY KEY,
-Quantidade int
-);
-
-insert into Medicamentos
-  (null,'insulinas'),
-  (null,'Xalacon '),
-  (null,'Solução Oftálmica'),
-  (null,'Xalatan Solução Oftálmica'),
-  (null,'Foraseq'),
-  (null,'Arulatan Solução Oftálmica'),
-  (null,'Miacalcic Spray nasal');
-
-  select *from Medicamentos;
 
  create table Alerta (
   idAlarme int primary Key auto_increment,
@@ -91,4 +82,4 @@ insert into Medicamentos
   (null, 1, -4, -9, 39, 34, 29),
   (null, 9, 14, 19, 71, 76, 81);
 
- delete database Nexus_Tec;
+ select * from Alerta;

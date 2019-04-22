@@ -21,19 +21,27 @@ create table Usuario (
 
  create table Local1 (
   idLocal int identity primary key, 
-  Nome_M varchar (40)
+  Sensor varchar (40)
   );
-  
- insert into Local1 values
-  ('insulinas'),
-  ('Xalacon '),
-  ('Solução Oftálmica'),
-  ('Xalatan Solução Oftálmica'),
-  ('Foraseq'),
-  ('Arulatan Solução Oftálmica'),
-  ('Miacalcic Spray nasal');
 
   select * from Local1;
+
+  create table Medicamentos (
+    idMedicamentos int identity primary key,
+    Nome varchar (40),
+    Quantidade int
+  );
+  
+ insert into Medicamentos values
+  ('insulinas'200),
+  ('Xalacon '120),
+  ('Solução Oftálmica'150),
+  ('Xalatan Solução Oftálmica'100),
+  ('Foraseq'125),
+  ('Arulatan Solução Oftálmica'190),
+  ('Miacalcic Spray nasal'112);
+
+  select * from Medicamentos;
   
 
  create table Historico (
@@ -45,7 +53,7 @@ create table Usuario (
   Minima_u float,
   Media_u float,
   Data date,
-  Tempo datetime
+  Tempo_alerta datetime
   );
 
  insert into Historico values
@@ -55,26 +63,6 @@ create table Usuario (
   (8, 2, 2.8, 70, 40, 40.70,'2019-03-31', '23:59');
  
  select * from Historico;     
- 
- create table Historico_alerta ( 
-  idhistorico_alerta int identity primary key,
-  Maxima_t float,
-  Minima_t float,
-  Media_t float,
-  Maxima_u float,
-  Minima_u float,
-  Media_u float,
-  Data date,
-  Tempo datetime
-  );
-
- insert into Historico_alerta values
-  (8, 2, 2.8, 70, 40, 40.70,'2019-03-28', '13:30'), 
-  (8, 2, 2.8, 70, 40, 40.70,'2019-03-30', '19:00'),
-  (8, 2, 2.8, 70, 40, 40.70,'2019-04-05', '20:10'),
-  (8, 2, 2.8, 70, 40, 40.70,'2019-04-11', '11:50');
-
- select * from Historico_alerta; 
 
  create table Alerta (
   idAlarme int identity primary Key,
