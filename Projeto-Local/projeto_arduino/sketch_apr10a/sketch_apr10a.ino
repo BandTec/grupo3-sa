@@ -12,14 +12,13 @@ void setup(){
 void loop(){
   DHT.read11(pinoDHT11); //LÊ AS INFORMAÇÕES DO SENSOR
 
-  Serial.print(DHT.temperature); //IMPRIME NA SERIAL O VALOR DE UMIDADE MEDIDO E REMOVE A PARTE DECIMAL
-  Serial.print(","); //ESCREVE O TEXTO EM SEGUIDA
+  Serial.println(DHT.temperature); //IMPRIME NA SERIAL O VALOR DE UMIDADE MEDIDO E REMOVE A PARTE DECIMAL
+  //Serial.print(","); //ESCREVE O TEXTO EM SEGUIDA
 
- Serial.println(DHT.humidity); //IMPRIME NA SERIAL O VALOR DE UMIDADE MEDIDO
+  //Serial.println(DHT.humidity); //IMPRIME NA SERIAL O VALOR DE UMIDADE MEDIDO
 
 
 
   
   delay(1000); //INTERVALO DE 2 SEGUNDOS * NÃO DIMINUIR ESSE VALOR
 }
-
