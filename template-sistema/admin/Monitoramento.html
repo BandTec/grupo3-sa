@@ -152,7 +152,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Temp. Atual</span>
-              <span class="info-box-number">22.5<small> Cº</small></span>
+              <span id="tem" class="info-box-number">22.5<small> Cº</small></span>
               <span  style="color:green; font-size: 15px">Situação Normal</span>
               <img src="c.jpg" style="max-width:15px">
 
@@ -170,7 +170,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Umidade Atual</span>
-              <span class="info-box-number">75<small>%</small></span>
+              <span id="umi" class="info-box-number">75<small>%</small></span>
               <span  style="color:green; font-size: 15px">Situação Normal</span>
               <img src="c.jpg" style="max-width:15px">
 
@@ -261,9 +261,50 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script>Highcharts.chart('container', {
+    <script>
+    
+   
+                
+    
+    
+    Highcharts.chart('container', {
       chart: {
-          type: 'line'
+          type: 'line',
+          events: {
+
+            load: function () {
+
+              var tem = document.querySelector('#tem');
+              var umi = document.querySelector('#umi');
+
+              var g =25;
+                // set up the updating of the chart each second
+                var series = this.series[0];
+                setInterval(function () {
+                  tem.innerHTML = g+0.5;
+                    var x = (new Date()).getTime(), // current time
+                        y = g = g+0.5
+                    series.addPoint([x, y], true, true);
+                }, 1000);
+
+                var l =75;
+                // set up the updating of the chart each second
+                var seriesz = this.series[1];
+                
+                setInterval(function () {
+                  umi.innerHTML =l+0.5;
+                    var x = (new Date()).getTime(), // current time
+                        y = l = l+0.5;
+                    seriesz.addPoint([x, y], true, true);
+                }, 1000);
+
+              
+                
+            }
+        }
+      },
+      time: {
+        useUTC: false
       },
       title: {
           text: 'Farmacia-Haddok Lobo'
@@ -272,7 +313,9 @@
           text: 'Geladeira piso Superior'
       },
       xAxis: {
-          categories: ['23:00', '23:05', '23:10', '23:15', '23:20', '23:25', '23:30', '23:35', '23:40', '23:45', '23:50', '23:55']
+        type: 'datetime',
+        tickPixelInterval:200,
+        //  categories: ['23:00', '23:05', '23:10', '23:15', '23:20', '23:25', '23:30', '23:35', '23:40', '23:45', '23:50', '23:55']
       },
       yAxis: {
           title: {
@@ -289,10 +332,41 @@
       },
       series: [{
         name: 'Temperatura',
-        data: [20.0, 21.5, 20.0, 19.0, 18.4, 17.0, 18.5, 20.5, 21.3, 23.3, 24.9, 26.0]
+
+        data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+              var t =25
+            
+            for (i = -1; i <= 0; i += 1) {
+              t++
+                data.push({
+                    x: time + i * 1000,
+                    y: t
+                });
+            }
+            return data;
+        }())
     }, {
         name: 'Umidade',
-        data: [85.9, 87.0, 86.5, 88.2, 89.0, 90.5, 87.0, 83.6, 78.2, 74.3, 70.4, 65.5]
+        data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+              var t =70
+            
+            for (i = -1; i <= 0; i += 1) {
+              t++
+                data.push({
+                    x: time + i * 1000,
+                    y: t
+                });
+            }
+            return data;
+        }())
     }]
   });</script>
 

@@ -6,7 +6,7 @@ dht DHT; //VARIÁVEL DO TIPO DHT
 
 void setup(){
   Serial.begin(9600); //INICIALIZA A SERIAL
-  delay(2000); //INTERVALO DE 2 SEGUNDO ANTES DE INICIAR
+  
 }
 
 void loop(){
@@ -16,9 +16,10 @@ void loop(){
   Serial.print(","); //ESCREVE O TEXTO EM SEGUIDA
 
   Serial.println(DHT.humidity); //IMPRIME NA SERIAL O VALOR DE UMIDADE MEDIDO
+  
 
 
 
   
-  delay(1000); //INTERVALO DE 2 SEGUNDOS * NÃO DIMINUIR ESSE VALOR
+  delay(40); //INTERVALO DE 2 SEGUNDOS * NÃO DIMINUIR ESSE VALOR
 }
