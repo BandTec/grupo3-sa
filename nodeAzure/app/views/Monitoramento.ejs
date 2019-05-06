@@ -109,6 +109,7 @@
               <li>
             <li>
           <li>
+            
         <a href="historico.html">
                 <i class="fa fa-circle"></i>
                     <span>Historico</span>
@@ -288,11 +289,11 @@
                 console.log(typeof cat)
                  var t=80;
                   var u=26;
-                socket.on('replay',function(){
+                socket.on('replay',function(time,temp,umid){
                   
                   
                   console.log('ok');
-
+                  console.log(time);
                   var date = new Date();
                   var time =`${date.getHours()-3}:0${date.getMinutes()}:${date.getSeconds()}`
                  
@@ -303,11 +304,11 @@
                   time = (new Date()).getTime()
                   var g= time + 1 * 1000
 
-                  document.querySelector("#tem").innerHTML=u+" Cº";
-                  document.querySelector("#umi").innerHTML=t+" %";
+                  document.querySelector("#tem").innerHTML=temp+" Cº";
+                  document.querySelector("#umi").innerHTML=umid+" %";
 
-                  series.addPoint([g, t], true, true);
-                  seriesz.addPoint([g, u], true, true);
+                  series.addPoint([time, umid], true, true);
+                  seriesz.addPoint([time, temp], true, true);
 
 
 
@@ -358,12 +359,12 @@
         },
         xAxis: {
           type: 'datetime',
-          tickPixelInterval:400,
+          tickPixelInterval:200,
          // categories: json.time
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: 'Temperatura (°C)    Umidade %'
             }
         },
         plotOptions: {
@@ -375,7 +376,7 @@
             }
         },
         series: [{
-          name: 'Temperatura',
+          name: 'Umidade',
   
           data:(function () {
             // generate an array of random data
@@ -393,7 +394,7 @@
             return data;
         }())
         },{
-          name: 'umidade',
+          name: 'Temperatura',
   
           data: (function () {
             // generate an array of random data

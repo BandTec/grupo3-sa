@@ -24,8 +24,26 @@ module.exports={
               }
 
               setInterval(function(){
-                  global.socket.emit('replay');
-              },6000)
+
+                repositorio_Monitoramento.selectUltimoSensor1().then(resolve=>{
+                    var date = new Date(resolve.recordset[0].Data_mon);
+    
+                    let time=`${date.getHours()+3}:${date.getMinutes()}:${date.getSeconds()}`
+        
+        
+                    let temp = resolve.recordset[0].Temperatura_Atual;
+        
+                    let umid = resolve.recordset[0].Umidade_Atual;
+
+                    //console.log(rs);
+
+                    console.log(time + ' '+ temp +' '+umid)
+
+                  global.socket.emit('replay',time,temp,umid);
+
+                })
+
+              },5000)
             
 
               var union = {time,temp,umid}
