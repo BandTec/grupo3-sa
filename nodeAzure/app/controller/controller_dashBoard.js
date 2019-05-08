@@ -1,63 +1,52 @@
 const repositorio_Monitoramento = require('../repositorio/repositorio_Monitoramento');
+const date = require("./../utils/date")
+const looping = require("../utils/looping")
+class Controller_dashBoard{
 
-module.exports={
+  constructor(){
+    this.io;
+  
+  }
 
-    exibirDash(){
-        return new Promise((resolve,reject)=>{
+  gerenciar(req){
+    this.io = req.socket;
+    this.selectToplast10()
+    looping.startLooping();
+    
+  }
+  
+  selectToplast10(){
 
-
-            repositorio_Monitoramento.selectTodosSensor1().then(rs=>{
+    repositorio_Monitoramento.selectTodosSensor1().then(rs=>{
            
-                var time =[];
-                var temp = [];
-                var umid = [];
-    
-              for(i = 0;i < 10;i++){
-               var date = new Date(rs.recordset[i].Data_mon);
-    
-                time[i]=`${date.getHours()+3}:0${date.getMinutes()}:${date.getSeconds()}`
-    
-    
-                temp[i] = rs.recordset[i].Temperatura_Atual;
-    
-                umid[i] = rs.recordset[i].Umidade_Atual;
-              }
+      var time =[];
+      var temp = [];
+      var umid = [];
 
-              setInterval(function(){
+        for(let i = 0;i < 10;i++){
 
-                repositorio_Monitoramento.selectUltimoSensor1().then(resolve=>{
-                    var date = new Date(resolve.recordset[0].Data_mon);
-    
-                    let time=`${date.getHours()+3}:${date.getMinutes()}:${date.getSeconds()}`
-        
-        
-                    let temp = resolve.recordset[0].Temperatura_Atual;
-        
-                    let umid = resolve.recordset[0].Umidade_Atual;
 
-                    //console.log(rs);
+        time[i]=date.getTime(rs.recordset[i].Data_mon+"GMT-6:00");
 
-                    console.log(time + ' '+ temp +' '+umid)
 
-                  global.socket.emit('replay',time,temp,umid);
+        temp[i] = rs.recordset[i].Temperatura_Atual;
 
-                })
-
-              },5000)
-            
-
-              var union = {time,temp,umid}
-              console.log(time);
-              resolve(union);
-            });
-                
-
-        });
+        umid[i] = rs.recordset[i].Umidade_Atual;
         
 
-        
+      }
 
-    }
+      global.socket_io.emit('start',time,temp,umid);
+      
+    })
+  }
+
 
 
 }
+
+
+    
+
+
+module.exports=Controller_dashBoard;

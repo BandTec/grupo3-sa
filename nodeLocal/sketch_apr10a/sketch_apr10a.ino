@@ -20,6 +20,6 @@ void loop(){
 
 
 
- 
-  delay(100); //INTERVALO DE 2 SEGUNDOS * NÃO DIMINUIR ESSE VALOR
+  
+  delay(40); //INTERVALO DE 2 SEGUNDOS * NÃO DIMINUIR ESSE VALOR
 }

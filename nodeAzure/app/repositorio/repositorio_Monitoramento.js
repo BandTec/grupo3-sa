@@ -1,5 +1,6 @@
 const mssql = require('../configs/db');
 
+
 module.exports={
     async selectTodosSensor1() {
 
@@ -21,11 +22,11 @@ module.exports={
         
 
     },
-    async selectUltimoSensor1() {
+    async selectUltimoSensor1(i) {
 
         const sql = await mssql.connect()
         return new Promise((resolve,reject)=>{
-            sql.query(`select * from monitoramento where idAtual = (select max(idAtual) from monitoramento)
+            sql.query(`select * from monitoramento where idAtual =${i}
             `,(err,result)=>{
                 
                 if(err){
