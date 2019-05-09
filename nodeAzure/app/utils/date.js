@@ -15,6 +15,18 @@ module.exports={
         var date =  new Date(time)
         return date.getTime();
 
+    },
+    getY(date){
+        var date = new Date(date)
+        return date.getFullYear();
+    },
+    getM(date){
+        var date = new Date(date)
+        return date.getMonth();
+    },
+    getD(date){
+        var date = new Date(date)
+        return date.getDate(); 
     }
 
 
