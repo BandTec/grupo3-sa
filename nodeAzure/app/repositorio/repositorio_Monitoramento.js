@@ -6,7 +6,7 @@ module.exports={
 
         const sql = await mssql.connect()
         return new Promise((resolve,reject)=>{
-            sql.query(`select * from monitoramento where idAtual > (select count(idAtual) from monitoramento)-20 
+            sql.query(`select * from monitoramento where idAtual > (select count(idAtual) from monitoramento)-10
             and fk_Sensor = 1`,(err,result)=>{
                 
                 if(err){
@@ -26,7 +26,7 @@ module.exports={
 
         const sql = await mssql.connect()
         return new Promise((resolve,reject)=>{
-            sql.query(`select * from monitoramento where idAtual =${i}
+            sql.query(`select * from monitoramento where idAtual = (select count(idatual) from monitoramento)+1
             `,(err,result)=>{
                 
                 if(err){

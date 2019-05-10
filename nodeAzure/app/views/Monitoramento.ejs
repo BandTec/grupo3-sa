@@ -156,7 +156,7 @@
               <span class="info-box-text">Temp. Atual</span>
               <span id="tem" class="info-box-number">22.5<small> Cº</small></span>
               <span  style="color:green; font-size: 15px">Situação Normal</span>
-              <img src="/dist/img/c.jpg" style="max-width:15px">
+              <img id="img_green" src="/dist/img/c.jpg" style="max-width:15px">
 
             </div>
             <!-- /.info-box-content -->
@@ -174,7 +174,7 @@
               <span class="info-box-text">Umidade Atual</span>
               <span id="umi" class="info-box-number">75<small>%</small></span>
               <span  style="color:green; font-size: 15px">Situação Normal</span>
-              <img src="/dist/img/c.jpg" style="max-width:15px">
+              <img src="/dist/img/c_red.png" style="max-width:15px">
 
             </div>
 
@@ -268,10 +268,26 @@
   <script>
     //console.log(rs);
     var socket = io('http://localhost:3000');
-    
-    socket.on('teste',function(){
-      console.log(teste);
+    var myvar;
+    var myVar2;
+    socket.on('pisca_yellow',function(){
+      
+       myVar = setInterval(function(){document.querySelector('#img_green').src="/dist/img/c_yellow.jpg"; console.log('coloquei')}, 700);
+       myVar2 = setInterval(function(){document.querySelector('#img_green').src=""; console.log('tirei')}, 1400);
+
+
     });
+
+
+
+
+    socket.on('stop_yellow',function(){
+      clearInterval(myVar);
+      clearInterval(myVar2);
+
+    
+    });
+    
 
 
     socket.on('start',function(time,temp,umid){
@@ -286,18 +302,14 @@
 
                 var series = this.series[0];
                 var seriesz = this.series[1];
-                var cat = this.xAxis[0].categories;
-                console.log(typeof cat)
-                 var t=80;
-                  var u=26;
-                socket.on('replay',function(time,temp,umid){
+                
+           
+                socket.on('replay',function(tim,temp,umid){
                   
                   
-                  console.log('ok');
-                  console.log(time);
                
                  
-
+                  time = new Date().getTime(),
                   
 
                  
@@ -383,9 +395,11 @@
                 i;
               var c =0
             for (i = -9; i <= 0; i += 1) {
+              time = (new Date()).getTime(),
+
                 data.push({
-                  x: time[c],
-                    y: umid[c]
+                  x: time + i * 1000,
+                  y: umid[c]
                 });
                 c++;
             }
@@ -401,9 +415,12 @@
                 c = 0;
 
             for (i = -9; i <= 0; i += 1) {
-              
+              time = (new Date()).getTime(),
+
+
+
                 data.push({
-                    x: time[c],
+                    x: time + i * 1000,
                     y: temp[c]
                 });
                 console.log(time[c]);

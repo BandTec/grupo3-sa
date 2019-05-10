@@ -33,7 +33,7 @@ class Controller_dashBoard{
 
         umid[i] = rs.recordset[i].Umidade_Atual;
         
-
+          
       }
 
       global.socket_io.emit('start',time,temp,umid);

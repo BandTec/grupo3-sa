@@ -1,6 +1,8 @@
+#include <dht.h>
+
 const int LM35 = A5; // Define o pino que lera a saída do LM35
 float temperatura; // Variável que armazenará a temperatura medida
- 
+
 //Função que será executada uma vez quando ligar ou resetar o Arduino
 void setup() {
 Serial.begin(9600); // inicializa a comunicação serial
@@ -14,5 +16,5 @@ Serial.print(temperatura);
 Serial.print(",");
 Serial.println(temperatura);
 
-delay(2000);
+delay(200);
 }
