@@ -12,7 +12,7 @@ temperatura = (float(analogRead(LM35))*5/(1023))/0.01;
 
 Serial.print(temperatura);
 Serial.print(",");
-Serial.println(temperatura);
+Serial.println(umidade);
 
 delay(2000);
 }
