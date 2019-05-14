@@ -2,7 +2,7 @@ module.exports={
 
     getHour(data){
         var date = new Date(data);
-        return `${this.format(date.getHours()+3)}:${this.format(date.getMinutes())}:${this.format(date.getSeconds())}`
+        return `${this.format(date.getHours())}:${this.format(date.getMinutes())}:${this.format(date.getSeconds())}`
     },
     format(data){
 

@@ -1,7 +1,9 @@
 const date = require("./date");
 const repositorio_Monitoramento = require('../repositorio/repositorio_Monitoramento');
 const alerta_ = require("../controller/controllerAlerta");
-const alerta = new alerta_;
+const alertaTemp = new alerta_('t');
+const alertaUmid = new alerta_('u');
+
 module.exports={
     startLooping(){
 
@@ -20,14 +22,15 @@ module.exports={
                 let umid = resolve.recordset[0].Umidade_Atual;
 
 
-                alerta.compara(temp);
+                alertaTemp.comparar(temp,3.5,6.5,2.5,7.5);
+                alertaUmid.comparar(umid,50,60,45,65);
 
                 global.socket_io.emit('replay',time,temp,umid);
 
                
             })
 
-        },6000)
+        },8000)
             
 
             
