@@ -1,4 +1,5 @@
 var createError = require('http-errors');
+var expressValidator = require('express-validator');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -7,9 +8,13 @@ var http = require('http');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var socket = require ('socket.io');
+var session = require('express-session')
+var bodyParser = require('body-parser');
+var formidable = require('formidable');
 
 
 var app = express();
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
 
 
@@ -32,6 +37,8 @@ io.on('connection', function (socket){
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(logger('dev'));
 //app.use(express.json());
@@ -46,6 +53,9 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+app.use(expressValidator());
+
 
 
 
