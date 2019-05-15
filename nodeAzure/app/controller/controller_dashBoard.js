@@ -1,4 +1,5 @@
 const repositorio_Monitoramento = require('../repositorio/repositorio_Monitoramento');
+const rUser = require('../repositorio/repositorio_user');
 const date = require("./../utils/date")
 const looping = require("../utils/looping")
 class Controller_dashBoard{
@@ -39,6 +40,16 @@ class Controller_dashBoard{
       global.socket_io.emit('start',time,temp,umid);
       
     })
+  }
+
+  selectSensoresEAlertas(cpf){
+    return new Promise((resolve,reject)=>{
+      rUser.selectSensoresEAlertas(cpf).then(rs=>{resolve(rs)})
+
+
+
+    });
+
   }
 
 

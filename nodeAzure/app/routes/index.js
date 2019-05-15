@@ -5,15 +5,10 @@ var C_dashBoard = new C_dashBoard_();
 var repositorio_Historico = require('../repositorio/repositorio_Historico');
 const login = require("../controller/controller_login");
 
-router.use(function(req,res,next){
-req.session.user = 'oiiiiiiiiiii';
 
-next();
-})
 
 router.get('/login', function(req, res, next) {
   res.render('login');
-  C_dashBoard.gerenciar(req);
 });
 
 router.post('/login', function(req, res, next) {
@@ -25,8 +20,7 @@ router.post('/login', function(req, res, next) {
     login.autenticar(req).then((user)=>{
       
       req.session.user = user;
-      console.log(req.session.user);
-      res.redirect('/admin');
+      res.redirect('/');
     }).catch((erros)=>{
       
       erro = [];
@@ -44,10 +38,14 @@ router.post('/login', function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.session.user);
-  res.render('monitoramento');
-  C_dashBoard.gerenciar(req);
+  C_dashBoard.selectSensoresEAlertas(req.session.user.CPF).then(sensores=>{
+    res.render('monitoramento',{sensores})
+  });
+  
+ // C_dashBoard.gerenciar(req);
 });
+
+
 
 
 router.get('/historico', function(req, res, next) {

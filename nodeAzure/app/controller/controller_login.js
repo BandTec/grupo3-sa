@@ -22,10 +22,9 @@ module.exports={
             
 
             sql.login(req.body).then((rs)=>{
-
                 if(rs.length > 0){
                     let row = rs[0];
-                    if(row.password == req.body.password){
+                    if(row.Senha == req.body.password){
                         resolve(row);
                     }else{
                         reject({msg :'usuario ou senha errada'})
