@@ -1,7 +1,6 @@
 const repositorio_Monitoramento = require('../repositorio/repositorio_Monitoramento');
 const rUser = require('../repositorio/repositorio_user');
 const date = require("./../utils/date")
-const looping = require("../utils/looping")
 class Controller_dashBoard{
 
   constructor(){
@@ -9,12 +8,15 @@ class Controller_dashBoard{
   
   }
 
-  gerenciar(req){
-    this.io = req.socket;
+  gerenciar(){
+ 
     this.selectToplast10()
-    looping.startLooping();
+    
+    
     
   }
+
+ 
   
   selectToplast10(){
 
@@ -36,8 +38,10 @@ class Controller_dashBoard{
         
           
       }
-
+      
+            
       global.socket_io.emit('start',time,temp,umid);
+
       
     })
   }

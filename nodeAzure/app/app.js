@@ -14,7 +14,10 @@ var formidable = require('formidable');
 
 
 var app = express();
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
+app.use(session({secret:'password',
+resave:false,
+saveUnitialized:false
+}))
 
 
 
@@ -26,11 +29,16 @@ var io = socket(http);
 io.on('connection', function (socket){
 
   console.log('usuario conectou');
+  
+
 
   global.socket_io = socket;
 
 
 });
+
+
+
 
 
 
