@@ -22,20 +22,18 @@ module.exports  = {
 
     },
 
-    async selectSensoresEAlertas(cpf){
+    async selectSensores(cpf){
         const sql = await mssql.connect()
         return new Promise((resolve,reject)=>{
             
             
-            sql.query(`select apelido,a.* from sensor_usuario inner join usuario 
-            on cpf = fk_cpf inner join sensor on fk_sensor = idsensor inner join alerta as a 
-            on fk_idalerta = idalerta where cpf = ${cpf}`,(err,rs)=>{
+            sql.query(`select  a.*  from sensor_usuario inner join usuario 
+            on cpf = fk_cpf inner join sensor as a on fk_sensor = idsensor where cpf = ${cpf}`,(err,rs)=>{
 
                 if(err){
-                    console.log(err);
                     reject(err);
                 }else{
-                   console.log(rs.recordset)
+             
                     resolve(rs.recordset);
                 }
 

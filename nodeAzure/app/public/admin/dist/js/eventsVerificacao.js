@@ -9,7 +9,7 @@ class eventsVericacao{
         this.idSelector={temp:"",umid:""};
         this.idSelector.temp=document.querySelector('#imgTemp');
         this.idSelector.umid=document.querySelector('#imgUmid');
-        this.idSrc={y:"/dist/img/c_yellow.jpg",r:"/dist/img/c_red.png",g:"/dist/img/c_green.jpg"};
+        this.idSrc={y:"/admin/dist/img/c_yellow.jpg",r:"/admin/dist/img/c_red.png",g:"/admin/dist/img/c_green.jpg"};
         
     }
 
@@ -30,17 +30,17 @@ class eventsVericacao{
 
             case"ug":
 
-               this.idSelectorText.umid.innerHTML="Normal";
+               this.idSelectorText.umid.innerHTML="Sit. Normal";
                 
             break;
             case"uy":
 
-                this.idSelectorText.umid.innerHTML="Atenção";
+                this.idSelectorText.umid.innerHTML="Sit. Atenção";
 
             break;
             case"ur":
 
-                this.idSelectorText.umid.innerHTML="Emergência";
+                this.idSelectorText.umid.innerHTML=" Sit.Emergência";
 
             break;
 

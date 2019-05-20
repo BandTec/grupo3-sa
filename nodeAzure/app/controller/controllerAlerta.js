@@ -21,7 +21,7 @@ class ControllerAlerta{
 
     comparar(valor,v1,v2,v3,v4){
 
-        
+        console.log(valor,v1,v2,v3,v4); 
 
 
         if(valor >= v1 && valor <= v2){
@@ -142,7 +142,7 @@ class ControllerAlerta{
 
         }
 
-       // sms(msg);
+        sms(msg);
 
     }
 

@@ -5,7 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var http = require('http');
-var indexRouter = require('./routes/index');
+var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var socket = require ('socket.io');
 var session = require('express-session')
@@ -14,9 +14,9 @@ var formidable = require('formidable');
 
 
 var app = express();
-app.use(session({secret:'password',
-resave:false,
-saveUnitialized:false
+app.use(session({secret:'password',/*
+resave:true,
+saveUnitialized:true*/
 }))
 
 
@@ -53,8 +53,9 @@ app.use(logger('dev'));
 //app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+console.log(path.join(__dirname,'public'))
 
-app.use('/', indexRouter);
+app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
