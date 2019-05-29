@@ -71,3 +71,18 @@ fk_Alerta int);
 
 alter table Sensor_Alerta add foreign key(fk_Sensor) references Sensor(idSensor);
 alter table Sensor_Alerta add foreign key(fk_Alerta) references Alerta(idAlerta);
+
+create table Analytics(
+idAnalytics int primary key,
+MedianaTemp float,
+MediaTemp float,
+PrimeiroQuarTemp float,
+TerceiroQuarTemp float,
+MedianaUmid float,
+MediaUmid float,
+PrimeiroQuarUmid float,
+TerceiroQuarUmid float,
+DataRegistro date,
+Fk_Sensor int);
+
+alter table Analytics add foreign key(fk_Sensor) references Sensor(idSensor);
