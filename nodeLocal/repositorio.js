@@ -7,7 +7,7 @@ module.exports={
 
 
         var date = new Date();
-        sql.query(`insert into monitoramento values (${temp},${umid},'${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}',2, 6, 5, 4,7)`, (err, result) => {
+        sql.query(`insert into monitoramento values (${temp},${umid},'${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}',2)`, (err, result) => {
             // ... error checks
         
             if(err){

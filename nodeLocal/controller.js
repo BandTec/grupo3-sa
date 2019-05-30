@@ -16,7 +16,7 @@ class controller{
 
             if(tem && umi){
                 this.t[this.i]=tem-22
-                this.u[this.i]=umi
+                this.u[this.i]=umi-15
                 this.i++;
 
             }
