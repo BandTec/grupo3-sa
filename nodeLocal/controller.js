@@ -15,8 +15,8 @@ class controller{
            var umi = this.valida(Number(temp[6]+temp[7]+temp[8]+temp[3]+temp[9]));
 
             if(tem && umi){
-                this.t[this.i]=tem-22
-                this.u[this.i]=umi-15
+                this.t[this.i]=tem
+                this.u[this.i]=umi
                 this.i++;
 
             }
