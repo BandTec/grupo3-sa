@@ -21,5 +21,5 @@ void loop(){
 
 
   
-  delay(150); //INTERVALO DE 2 SEGUNDOS * NÃO DIMINUIR ESSE VALOR
+  delay(200);
 }
